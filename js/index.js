@@ -14,37 +14,57 @@
 
 let playerSelection = ""
 let computerSelection = ""
-let score = "" 
-let result = ""
+let scorePlayer = ""
+let scorePc = "" 
+let whoWin = ""
 
-function game(){       
-    for (let i = 0; i < 5; i++){
-        playerSelection = prompt("ESCOLHE AI SEU CORNO!", "Rock, Paper or Scissors").toLowerCase()
-        computerSelection = computerPlay()             
-        score = i
+const btn = document.querySelectorAll(".btn")
+const result = document.querySelector(".result")
+console.log(result)
+
+btn.forEach(btn => btn.addEventListener("click", function(e){
+    if(btn.textContent === "Rock"){
+        playerSelection = "rock"
+        game()        
+    } else if (btn.textContent === "Paper"){
+        playerSelection = "paper"
+        game()
+    } else {
+        playerSelection = "scissor"
+        game()
+    }
+}))
+
+
+
+
+function game(){      
+    
+         computerSelection = computerPlay()             
+        
         function playRound(){
             if (playerSelection === computerSelection){
-                result = `Its a tie `
+                whoWin = `Its a tie `
             } else if ( playerSelection === "rock" && computerSelection === "scissor"){
-                result = "You win! rock beats scissor"
+                whoWin = "You win! rock beats scissor"
             } else if (playerSelection === "rock" && computerSelection === "paper") {
-                result = "You lose! Paper beats Rock"
+                whoWin = "You lose! Paper beats Rock"
             } else if (playerSelection === "paper" && computerSelection === "rock"){
-                result = "You win! paper beats rock"
+                whoWin = "You win! paper beats rock"
             } else if (playerSelection === "paper" && computerSelection === "scissor"){
-                result = "You lose! Scissor beats paper"
+                whoWin = "You lose! Scissor beats paper"
             } else if (playerSelection === "scissor" && computerSelection === "paper"){
-                result = "You win! Scissor beats paper"
+                whoWin = "You win! Scissor beats paper"
             } else if (playerSelection === "scissor" && computerSelection === "rock"){
-                result = "You lose! Rock beats scissor!"
+                whoWin = "You lose! Rock beats scissor!"
             } else {
-                result = "Put a valid option!"
+                whoWin = "Put a valid option!"
             }            
         }
         playRound()     
-        alert(result)        
+        result.textContent = whoWin      
     }      
-}
+
 
 function computerPlay(){
     let randomChoice = Math.floor(Math.random() *3 )   
@@ -57,7 +77,7 @@ function computerPlay(){
     }
 }
   
-game()
+
 
 
 
