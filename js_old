@@ -1,0 +1,79 @@
+let playerSelection = ""
+let computerSelection = ""
+let scorePlayer = ""
+let scorePc = "" 
+let whoWin = ""
+let isLive = true
+
+const btn = document.querySelectorAll(".btn")
+const result = document.querySelector(".result")
+const playerScore = document.querySelector(".player-score")
+const computerScore = document.querySelector(".computer-score")
+
+btn.forEach(btn => btn.addEventListener("click", function(e){
+    if(btn.textContent === "Rock"){
+        playerSelection = "rock"
+        game()        
+    } else if (btn.textContent === "Paper"){
+        playerSelection = "paper"
+        game()
+    } else {
+        playerSelection = "scissor"
+        game()
+    }
+}))
+
+
+
+
+function game(){      
+       if(scorePlayer < 5 || scorePc < 5 && isLive === true ){
+        computerSelection = computerPlay()
+        function playRound(){
+            if (playerSelection === computerSelection){
+                whoWin = `Its a tie `
+            } else if ( playerSelection === "rock" && computerSelection === "scissor"){
+                whoWin = "You win! rock beats scissor"
+                scorePlayer++ 
+            } else if (playerSelection === "rock" && computerSelection === "paper") {
+                whoWin = "You lose! Paper beats Rock"
+                scorePc++
+            } else if (playerSelection === "paper" && computerSelection === "rock"){
+                whoWin = "You win! paper beats rock"
+                scorePlayer++ 
+            } else if (playerSelection === "paper" && computerSelection === "scissor"){
+                whoWin = "You lose! Scissor beats paper"
+                scorePc++
+            } else if (playerSelection === "scissor" && computerSelection === "paper"){
+                whoWin = "You win! Scissor beats paper"
+                scorePlayer++ 
+            } else if (playerSelection === "scissor" && computerSelection === "rock"){
+                whoWin = "You lose! Rock beats scissor!"
+                scorePc++
+            } else {
+                whoWin = "Put a valid option!"
+            }            
+        }   if (scorePc === 5 || scorePlayer === 5){
+            isLive = false
+        }            
+        result.textContent = whoWin  
+        playerScore.textContent = `Player Score: ${scorePlayer}`
+        computerScore.textContent = `Computer Score: ${scorePc}`
+        playRound() 
+        console.log(scorePlayer, scorePc)
+
+        } 
+        
+    }      
+
+
+function computerPlay(){
+    let randomChoice = Math.floor(Math.random() *3 )   
+    if (randomChoice === 0){
+        return "rock"
+    } else if (randomChoice === 2){
+        return "paper"
+    } else {
+        return "scissor"
+    }
+}

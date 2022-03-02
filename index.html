@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
-    <title>Rock Paper and Scissors!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock,Paper and Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
 
-    <script src="js/index.js"></script>
+    </header>
+    <main class="main-box">
+        <div class="box-style result-box">
+             <p class="result">✊</p>
+        </div>
+        <h1 class="result-text text-style">Let's Play!</h1>
+        <div class="main-points">
+            <div class="player-points-box">
+                <p class="text-style you-text">You</p>
+                <div class="player-points box-style">
+                    <p class="player-points player-result text-style">0</p>
+                </div>            
+            </div>
+            <p class="text-style">VS</p>
+            <div class="computer-points-box">                
+                <div class="computer-points box-style">
+                    <p class="computer-points computer-result text-style">0</p>
+                </div>
+                <p class="text-style computer-text">PC</p>            
+            </div>
+        </div>
+        <div class="choice-main-box">
+            <div class="box-style choice-box">
+                <p class="choice">✋</p>
+            </div>
+            <div class="box-style choice-box">
+                <p class="choice">✊</p>
+            </div>
+            <div class="box-style choice-box">
+                <p class="choice">✌️</p>
+            </div>
+        </div>
+    </main>
+    <section class="reset-box">
+        <div id="btn-reset" class="box-style">
+            <p class="text-style">RESET</p>
+        </div>        
+    </section>
+    <footer>
+        <p>Make by me :)</p>
+    </footer>
+    <script src="/js/index.js"></script>
 </body>
 </html>
